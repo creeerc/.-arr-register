@@ -1,8 +1,8 @@
 """Main application window and screen navigation."""
 
 import tkinter as tk
-from tkinter import ttk, messagebox
 
+from . import config
 from .ui import styles as S
 from .wallet_service import WalletService
 from .database import Database
@@ -14,7 +14,7 @@ class ViyipWalletApp(tk.Tk):
 
     def __init__(self):
         super().__init__()
-        self.title(f"{S.APP_NAME} - Digital Wallet")
+        self.title(f"{config.APP_NAME} - Digital Wallet")
         self.geometry("430x780")
         self.resizable(False, False)
         self.configure(bg=S.BG)

@@ -19,7 +19,7 @@ class BaseScreen(tk.Frame):
         bar.pack_propagate(False)
 
         if show_back:
-            back = tk.Button(bar, text="Back", bg="transparent", fg=S.ACCENT,
+            back = tk.Button(bar, text="Back", bg=S.BG_CARD, fg=S.ACCENT,
                              activebackground=S.BG_CARD_2, activeforeground=S.ACCENT,
                              font=S.FONT_SMALL, bd=0, cursor="hand2",
                              command=lambda: self.app.show_screen("DashboardScreen"))
@@ -48,7 +48,7 @@ def label(parent, text, font=S.FONT_BODY, fg=S.TEXT, bg=S.BG_CARD, **kwargs):
 
 
 def entry(parent, **kwargs):
-    e = tk.Entry(parent, bg=S.BG_CARD_2, fg=S.TEXT, insertcolor=S.TEXT,
+    e = tk.Entry(parent, bg=S.BG_CARD_2, fg=S.TEXT, insertbackground=S.TEXT,
                  font=S.FONT_BODY, highlightbackground=S.BORDER,
                  highlightthickness=1, **kwargs)
     return e

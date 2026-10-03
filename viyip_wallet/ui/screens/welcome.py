@@ -2,8 +2,8 @@
 
 import tkinter as tk
 
-from ... import styles as S
-from .base import BaseScreen, action_button, label, card
+from .. import styles as S
+from ..base import BaseScreen, action_button, label, card
 
 
 class WelcomeScreen(BaseScreen):
@@ -46,9 +46,10 @@ class WelcomeScreen(BaseScreen):
             label(col, desc, font=S.FONT_SMALL, fg=S.TEXT_MUTED).pack(anchor="w")
 
         # Actions
-        action_button(self, "Login", command=self.app.show_screen("LoginScreen"),
+        action_button(self, "Login",
+                      command=lambda: self.app.show_screen("LoginScreen"),
                       width=24).pack(pady=(10, 8), padx=24, fill="x")
         action_button(self, "Create Account",
-                      command=self.app.show_screen("SignupScreen"),
+                      command=lambda: self.app.show_screen("SignupScreen"),
                       bg=S.BG_CARD_2, fg=S.TEXT, width=24).pack(
             pady=(0, 30), padx=24, fill="x")

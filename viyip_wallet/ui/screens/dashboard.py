@@ -2,8 +2,8 @@
 
 import tkinter as tk
 
-from ... import styles as S
-from .base import (BaseScreen, action_button, card, divider, label,
+from .. import styles as S
+from ..base import (BaseScreen, action_button, card, divider, label,
                    status_badge)
 
 
@@ -26,16 +26,17 @@ class DashboardScreen(BaseScreen):
         label(top, viyip_id, font=S.FONT_SMALL, fg=S.TEXT_MUTED).pack(
             side="left", padx=(0, 16), pady=14)
 
-        logout_btn = tk.Button(top, text="Logout", bg="transparent",
-                               fg=S.TEXT_MUTED, activeforeground=S.DANGER,
-                               font=S.FONT_SMALL, bd=0, cursor="hand2",
-                               command=self.app.logout)
+        logout_btn = tk.Button(
+            top, text="Logout", bg=S.BG_CARD, fg=S.TEXT_MUTED,
+            activeforeground=S.DANGER, font=S.FONT_SMALL, bd=0,
+            cursor="hand2", command=self.app.logout)
         logout_btn.pack(side="right", padx=16, pady=14)
 
-        hist_btn = tk.Button(top, text="History", bg=S.BG_CARD_2, fg=S.ACCENT,
-                             activebackground=S.ACCENT, activeforeground=S.TEXT,
-                             font=S.FONT_SMALL, bd=0, cursor="hand2",
-                             command=lambda: self.app.show_screen("HistoryScreen"))
+        hist_btn = tk.Button(
+            top, text="History", bg=S.BG_CARD_2, fg=S.ACCENT,
+            activebackground=S.ACCENT, activeforeground=S.TEXT,
+            font=S.FONT_SMALL, bd=0, cursor="hand2",
+            command=lambda: self.app.show_screen("HistoryScreen"))
         hist_btn.pack(side="right", padx=(0, 8), pady=10)
 
         # Balance card

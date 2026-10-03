@@ -2,8 +2,8 @@
 
 import tkinter as tk
 
-from ... import styles as S
-from .base import (BaseScreen, action_button, card, divider, entry, label,
+from .. import styles as S
+from ..base import (BaseScreen, action_button, card, divider, entry, label,
                    status_badge)
 
 

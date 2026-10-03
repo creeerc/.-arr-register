@@ -12,8 +12,10 @@ from . import config
 class Database:
     """Thread-safe SQLite wrapper."""
 
-    def __init__(self, db_path: str = config.DB_PATH):
-        self.db_path = db_path
+    def __init__(self, db_path: str = None):
+        # Resolve lazily so config.DB_PATH can be overridden at runtime
+        # (e.g. for tests or a user-selected data directory).
+        self.db_path = db_path or config.DB_PATH
         self._lock = threading.Lock()
         self._conn = sqlite3.connect(self.db_path, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
